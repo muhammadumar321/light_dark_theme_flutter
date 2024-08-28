@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lightanddarkmood/components/box.dart';
+import 'package:lightanddarkmood/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../components/button.dart';
 
@@ -19,8 +21,10 @@ class _HomePageState extends State<HomePage> {
         child: MyBox(
           color: Theme.of(context).colorScheme.primary,
           child: MyButton(
-            color: Theme.of(context).colorScheme.secondary,
-            onTap: () {},
+            color: Theme.of(context).colorScheme.onSecondary,
+            onTap: () {
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+            },
           ),
         ),
       ),
